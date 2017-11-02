@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Http\Controllers\controller;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -12,6 +13,7 @@ class PostsController extends Controller
     public function  index()
     {
         $post = Post::all();
+        return response()->json($post);
     }
 
      //Create a New Post
@@ -33,6 +35,15 @@ class PostsController extends Controller
 
         return response()->json($post);
 
+    }
+
+    // View Post
+
+    public function viewPost($id)
+    {
+        $post = Post::find($id);
+
+        return response()->json($post);
     }
 
     //Deleting the Post

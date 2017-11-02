@@ -14,3 +14,23 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+
+$router->group(['prefix' => 'api/v1'], function($router)
+
+{
+//    End Point of the post
+
+    $router->get('posts/index', 'PostsController@index');
+
+    $router->post('posts/add', 'PostsController@createPost');
+
+    $router->get('posts/view/{id}', 'PostsController@viewPost');
+
+    $router->put('posts/edit/{id}', 'PostsController@updatePost');
+
+    $router->delete('posts/delete/{id}', 'PostsController@deletePost');
+
+
+
+});
