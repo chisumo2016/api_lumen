@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 class PostsController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth', ['only'=>['add', 'view']]);
+    }
+
     //List all post
     public function  index()
     {
