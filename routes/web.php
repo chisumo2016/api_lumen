@@ -19,18 +19,49 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'api/v1'], function($router)
 
 {
-//    End Point of the post
+    //End Point of the posts
+    $router->group(['prefix' => 'posts'], function($router)
 
-    $router->get('posts/index', 'PostsController@index');
+    {
+             // post
 
-    $router->post('posts/add', 'PostsController@createPost');
+        $router->get('/index', 'PostsController@index');
 
-    $router->get('posts/view/{id}', 'PostsController@viewPost');
+        $router->post('/add', 'PostsController@createPost');
 
-    $router->put('posts/edit/{id}', 'PostsController@updatePost');
+        $router->get('view/{id}', 'PostsController@viewPost');
 
-    $router->delete('posts/delete/{id}', 'PostsController@deletePost');
+        $router->put('edit/{id}', 'PostsController@updatePost');
+
+        $router->delete('delete/{id}', 'PostsController@deletePost');
+
+    });
 
 
+    //End Point of the Users
+
+    $router->group(['prefix' => 'users'], function($router)
+
+    {
+
+           //Users
+        $router->get('index', 'UsersController@index');
+
+        $router->post('add', 'UsersController@add');
+
+        $router->get('view/{id}', 'UsersController@view');
+
+        $router->put('edit/{id}', 'UsersController@edit');
+
+        $router->delete('delete/{id}', 'UsersController@delete');
+
+
+
+    });
 
 });
+
+
+
+
+
