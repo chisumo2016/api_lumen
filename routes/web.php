@@ -43,7 +43,6 @@ $router->group(['prefix' => 'api/v1'], function($router)
     $router->group(['prefix' => 'users', 'middleware'=>'cors'], function($router)
 
     {
-
            //Users
         $router->get('index', 'UsersController@index');
 
