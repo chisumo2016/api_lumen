@@ -40,7 +40,7 @@ $router->group(['prefix' => 'api/v1'], function($router)
 
     //End Point of the Users
 
-    $router->group(['prefix' => 'users'], function($router)
+    $router->group(['prefix' => 'users', 'middleware'=>'cors'], function($router)
 
     {
 

@@ -59,12 +59,13 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
+$app->middleware([
+    App\Http\Middleware\ExampleMiddleware::class  //uncimment
+]);
 
  $app->routeMiddleware([
      'auth' => App\Http\Middleware\Authenticate::class,
+     'cors' => App\Http\Middleware\CorsMiddleware::class, // added by me
  ]);
 
 /*
@@ -80,6 +81,7 @@ $app->singleton(
 
 // $app->register(App\Providers\AppServiceProvider::class);
  $app->register(App\Providers\AuthServiceProvider::class);
+ $app->register(App\Providers\CatchAllOptionsRequestProvider::class);  // added by me
 // $app->register(App\Providers\EventServiceProvider::class);
 
 /*
