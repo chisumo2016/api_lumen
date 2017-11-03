@@ -13,7 +13,7 @@ class UsersController extends Controller
     //List all User
     public function  index()
     {
-        $user = Post::all();
+        $user = User::all();
         return response()->json($user);
     }
 
@@ -31,7 +31,7 @@ class UsersController extends Controller
     public function edit(Request $request, $id)
     {
         $user= User::find($id);
-        user->update($request->all());
+        $user->update($request->all());
 
         return response()->json($user);
 
@@ -50,7 +50,7 @@ class UsersController extends Controller
 
     public function  delete($id)
     {
-        $user = Post::find($id);
+        $user = User::find($id);
         $user->delete();
 
         return response()->json('Removed Successfully');
